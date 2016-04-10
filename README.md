@@ -1,8 +1,6 @@
 # Computer Systems Organization : Lab 3
 
-In this project you will practice analyzing cache use and how to tweak C code to make it (more) cache friendly. The repository contains five files: part1, ...,level_5
-with different C functions that perform operations that are fairly memory intensive.  Your task is to implement equivalent functions (i.e., your functions should perform exactly the same tasks) but in a cache-aware manner. Your functions
-will be called part1_opt, ...,  part5_opt.
+In this project you will practice analyzing cache use and how to tweak C code to make it (more) cache friendly. The repository contains five files: part1, ..., part5 with different C functions that perform operations that are fairly memory intensive.  Your task is to implement equivalent functions (i.e., your functions should perform exactly the same tasks) but in a cache-aware manner. Your functions will be called part1_opt, ..., part5_opt.
 
 ## Obtaining the lab code  
 
@@ -10,7 +8,7 @@ Clone this repository. (Do not fork!)
 
 ## Installing Valgrind
 
-Before staring your lab you must install [Valgrind](http://valgrind.org/). In a terminal on your VM run the following command.
+Before starting your lab you must install [Valgrind](http://valgrind.org/). In a terminal on your VM run the following command.
 
 ```
 sudo apt-get install valgrind
@@ -29,7 +27,6 @@ the functions implements a bubble sort, do not change it to quick sort.
 * You should first understand what the function does, then attempt to optimize it.
 
 ## Completing the lab
-
 
 The repository contains all files you need to work on this project. There are the problem files part1.c ... part5.c. You need to develop implement your optimized functions within those files. There are function stubs there for you already.
 
@@ -157,4 +154,3 @@ Your score will be computed out of a maximum of 100 points based on the followin
 git commit -am "Submitting lab 3"  
 git push origin master
 ```  
-
