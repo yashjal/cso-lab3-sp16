@@ -78,7 +78,7 @@ part1 [part1.c]:
 
 This will display whether or not your implementation is correct and then display abbreviated performance information.
 
-# Testing Cache Performance
+## Testing cache performance
 
 If your optimized version of the method passes correctness tests, the `./test-part` command will also run a cache simulator to see the code's cache performance using a tool called Cachegrind. 
 
