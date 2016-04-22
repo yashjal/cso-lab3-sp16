@@ -23,11 +23,20 @@ double part2(double* B, double* A, int x, int y)
     return A[x+y];
 }
 
+/*
+ * In part2, spacial locality of accessing data from array B
+ * is not utilized. By interchanging the loops, spacial locality
+ * of referencing/accessing data A is preserved by adding temperal
+ * locality and also accessing data from B is achieved with a stride-1 
+ * reference pattern; thus reducing cache misses.
+*/
+
 double part2_opt(double * B, double * A, int x, int y )
 {
-    // TODO: Your code here.
-    assert(0);
-
-    // Do not modify the rest of this function
+    int i, j;
+    for(j = 0; j < SMALL; j++)
+        for(i = 0; i < LARGE; i++)
+            A[i] = A[i] + B[ j * LARGE + i];
+    
     return A[x+y];
 }

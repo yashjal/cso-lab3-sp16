@@ -23,12 +23,21 @@ int part1(int* B, int x, int y)
     return B[x * N + y];
 }
 
+/*
+ * Interchanging the loops provide a stride-1 reference pattern,
+ * thereby reducing cache misses. In part1, spacial locality of 
+ * data in and reference of array B is not utililized: traversal 
+ * through array B is not done by accessing/referencing succesive  
+ * elements because of which cache misses increase.
+*/
 int part1_opt(int* B, int x, int y)
 {
     if (!B) return -1;
 
-    // TODO - your code here.
-    assert(0);
+    int c, r;
+    for(r = 0; r < N; r++)
+        for(c = 0; c < N; c++)
+            B[r * N + c] = 2 * (B[r * N + c] + 2);
 
     return B[x * N + y];
 }

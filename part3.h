@@ -26,9 +26,21 @@ char* part3_opt();
 typedef struct { 
     char c1;
     double f1;
-    int n1; 
+    int n1;
     char c2;
     int n2;
-    double f2; 
-} data; 
+    double f2;
+} data;
+
+/*
+ * Packing the struct saves space in the heap. 
+*/
+typedef struct { 
+    double f1;
+    double f2;
+    int n1;
+    int n2;
+    char c1;
+    char c2;
+} data1;
 

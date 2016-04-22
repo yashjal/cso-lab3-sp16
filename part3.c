@@ -42,11 +42,21 @@ char* part3()
     return sum_c;
 }
 
+/*
+ * The only difference between the two functions is their definitions
+ * of the struct. In part3, the struct is not packed, and the order
+ * of the elements in it is such that more space is being used in the heap
+ * to store a struct. Also the order of elements in it doesn't match the 
+ * order in which it is accessed in the code. Packing the struct reduces space 
+ * to store it on the heap and provides right order in which it is accessed
+ * in the code -> first avoiding capacity miss and latter improving spacial 
+ * locality -> better cache performance.
+*/
 char* part3_opt()
 {
-    // TODO: Create the array of structures same or equivalent
-    // to the one in the function above
-    assert(0);
+
+    data1* B = (data1*) calloc(LARGER, sizeof(data));
+    if (!B) return 0;
 
     // DO NOT modify the following 4 lines
     double sum_f = 0.0;
@@ -55,10 +65,16 @@ char* part3_opt()
     sum_c[2 * LARGER] = '\0';
     // DO NOT modify the preceeding 4 lines
 
-    // TODO: Enter your code here (make sure to free
-    // the array B once before returning)
-    assert(0);
-
-    //DO NOT modify the rest of this function
+    int i;
+    for(i = 0; i < LARGER ; i++)
+    {
+        sum_f += B[i].f1 + B[i].f2;
+        sum_n += B[i].n1 + B[i].n2;
+        sum_c[2 * i] = B[i].c1;
+        sum_c[2 * i + 1] = B[i].c2;
+        
+    }
+    
+    free(B);
     return sum_c;
 }
